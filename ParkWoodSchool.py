@@ -7,7 +7,7 @@ def MainMenu():
         
     MainMenuWin=Tk()
     MainMenuWin.title("Main Menu")
-    MainMenuWin.geometry("200x200")
+    MainMenuWin.geometry("300x300")
     
     frame1=Frame(MainMenuWin)
     frame1.pack()

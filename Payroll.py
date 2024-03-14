@@ -16,6 +16,10 @@ Deducts=DoubleVar()
 Deducts.set('0.0')
 NetPay=DoubleVar()
 NetPay.set('0.0')
+Repayment=DoubleVar()
+Repayment.set('0.0')
+NetLoanD=DoubleVar()
+NetLoanD.set('0.0')
 
 def CalcPay():
 
@@ -25,6 +29,12 @@ def CalcPay():
     Pension.set(Gross * 0.08)
     Deducts.set(Gross * 0.2 + Gross * 0.14 + Gross * 0.08)
     NetPay.set(Gross - (Gross * 0.2 + Gross * 0.14 + Gross * 0.08))
+    
+def CalcLoan():
+    Gross = float(GrossPay.get())
+    Repayment.set(Gross * 0.1)
+    NetPay.set(Gross - (Gross * 0.2 + Gross * 0.14 + Gross * 0.08))
+    NetLoanD.set(NetPay.get() - Repayment.get())
         
    
 GrossPayLabel=Label(PayrollWin, text="Gross Pay").grid(row=3, column=0, sticky=W)
@@ -46,8 +56,15 @@ DeductsLabelValue=Label(PayrollWin, textvariable=Deducts).grid(row=8, column=1, 
 NetPayLabelText=Label(PayrollWin, text="Net Pay: ").grid(row=9, column=0, sticky=W)
 NetPayLabelValue=Label(PayrollWin, textvariable=NetPay).grid(row=9, column=1, sticky=W)
 
+b2= Button(PayrollWin, text=" Student Loan - Calculate ", command=CalcLoan).grid(row=12)
 
-b2= Button(PayrollWin, text=" Back ", command=PayrollWin.destroy).grid(row=10)
+TaxLabelText=Label(PayrollWin, text="Student loan repayment: ").grid(row=10, column=0, sticky=W)
+TaxLabelValue=Label(PayrollWin, textvariable=Repayment).grid(row=10, column=1, sticky=W)
+NetPayLabelText=Label(PayrollWin, text="Net Pay - Loan deducted: ").grid(row=11, column=0, sticky=W)
+NetPayLabelValue=Label(PayrollWin, textvariable=NetLoanD).grid(row=11, column=1, sticky=W)
+
+
+b3= Button(PayrollWin, text=" Back ", command=PayrollWin.destroy).grid(row=13)
    
     
 PayrollWin.mainloop()
