@@ -24,8 +24,8 @@ NetLoanD.set('0.0')
 def CalcPay():
 
     Gross = float(GrossPay.get())
-    Tax.set(Gross * 0.2)
-    NatIns.set(Gross * 0.14)
+    Tax.set(Gross * 0.22)       # Tax value adjusted from 20% (0.2) to 22% (0.22)
+    NatIns.set(Gross * 0.085)   # National Insurance value adjusted from 14% (0.14) to 8.5% (0.085)
     Pension.set(Gross * 0.08)
     Deducts.set(Gross * 0.2 + Gross * 0.14 + Gross * 0.08)
     NetPay.set(Gross - (Gross * 0.2 + Gross * 0.14 + Gross * 0.08))
