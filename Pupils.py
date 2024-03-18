@@ -25,19 +25,18 @@ def SavePupil() :
             SurnameSave = SurnameVar.get()
             SurnameSave = SurnameSave.ljust(50)
         
-            AddressSave = AddressVar.get()
-            AddressSave = AddressSave.ljust(50)
+            formSave = formVar.get()
+            formSave = formSave.ljust(50)
         
-            PostCodeSave = PostCodeVar.get()
-            PostCodeSave = PostCodeSave.ljust(50)
+            DateSave = DateVar.get()
+            DateSave = DateSave.ljust(50)
         
-            QualSave = QualVar.get()
-            QualSave = QualSave.ljust(50)
+        
             
         
             fileObject = open("PupilDetails.txt","a")
             
-            fileObject.write(PupilIDSave + FirstnameSave + SurnameSave + AddressSave + PostCodeSave + QualSave + "\n")
+            fileObject.write(PupilIDSave + FirstnameSave + SurnameSave + formSave + DateSave + "\n")
             fileObject.close()
             
             messagebox.showinfo("Confirmation","Pupil details successfully saved")
@@ -63,20 +62,15 @@ SurnameVar=StringVar()
 SurnameVar= Entry(frame1, textvariable=SurnameVar)
 SurnameVar.grid(row=5,column=1,sticky=W)
 
-Label(frame1, text="Address").grid(row=6, column=0, sticky=W)
-AddressVar=StringVar()
-AddressVar= Entry(frame1, textvariable=AddressVar)
-AddressVar.grid(row=6,column=1,sticky=W)
+Label(frame1, text="form class").grid(row=6, column=0, sticky=W)
+formVar=StringVar()
+formVar= Entry(frame1, textvariable=formVar)
+formVar.grid(row=6,column=1,sticky=W)
 
-Label(frame1, text="Postcode").grid(row=7, column=0, sticky=W)
-PostCodeVar=StringVar()
-PostCodeVar= Entry(frame1, textvariable=PostCodeVar)
-PostCodeVar.grid(row=7,column=1,sticky=W)
-
-Label(frame1, text="Qualification").grid(row=8, column=0, sticky=W)
-QualVar=StringVar()
-QualVar= Entry(frame1, textvariable=QualVar)
-QualVar.grid(row=8,column=1,sticky=W)
+Label(frame1, text="Date Of Birth").grid(row=7, column=0, sticky=W)
+DateVar=StringVar()
+DateVar= Entry(frame1, textvariable=DateVar)
+DateVar.grid(row=7,column=1,sticky=W)
 
 
 frame2 = Frame(AddPupilWin)

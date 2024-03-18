@@ -19,6 +19,7 @@ def MainMenu():
     frame2.pack()
 
     btn3=Button(frame2,text="Add User",command=AddUser)
+    btn6=Button(frame2,text="Add Pupil",command=Pupils_in)
     
     frame3=Frame(MainMenuWin)
     frame3.pack()
@@ -29,13 +30,18 @@ def MainMenu():
     btn1.pack()
     btn2.pack()
     btn3.pack()
+    btn6.pack()
     btn4.pack(side=LEFT)
     btn5.pack(side=LEFT)
             
 def Payroll():
     
     os.system('python Payroll.py')
-    
+
+def Pupils_in():
+
+    os.system('python Pupils.py')
+
 def AddTeacher():
 
     def SaveTeacher() :
@@ -161,8 +167,7 @@ def AddUser():
     b2= Button(frame2, text=" Save ", command=SaveUser)
     b1.pack(side=LEFT); b2.pack(side=LEFT)
 
-    
-    
+
 def LoginScreen():
     
     def login():
